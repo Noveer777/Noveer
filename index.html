@@ -50,6 +50,20 @@
       color: #dddddd;
     }
 
+    h2 {
+      margin-top: 30px;
+      color: #c9a14a;
+    }
+
+    /* ✨ العداد */
+    .countdown-title {
+      color: #c9a14a;
+      font-size: 1.5rem;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
     .countdown {
       display: flex;
       justify-content: center;
@@ -66,7 +80,7 @@
       padding: 20px;
       border-radius: 20px;
 
-      min-width: 110px;
+      min-width: 130px;
 
       box-shadow:
         0 0 15px rgba(201, 161, 74, 0.15);
@@ -74,13 +88,8 @@
 
     .time-box span {
       display: block;
-      font-size: 2rem;
+      font-size: 2.2rem;
       font-weight: bold;
-      color: #c9a14a;
-    }
-
-    h2 {
-      margin-top: 30px;
       color: #c9a14a;
     }
 
@@ -154,12 +163,12 @@
       }
 
       .time-box {
-        min-width: 80px;
+        min-width: 100px;
         padding: 15px;
       }
 
       .time-box span {
-        font-size: 1.5rem;
+        font-size: 1.7rem;
       }
 
       .main-image img {
@@ -180,6 +189,11 @@
       نتشرف بحضوركم ومشاركتنا أجمل لحظاتنا ❤️
     </p>
 
+    <!-- ✨ عنوان العداد -->
+    <div class="countdown-title">
+      ⏳ متبقي علي الفرح
+    </div>
+
     <div class="countdown">
 
       <div class="time-box">
@@ -192,24 +206,13 @@
         ساعة
       </div>
 
-      <div class="time-box">
-        <span id="minutes">0</span>
-        دقيقة
-      </div>
-
-      <div class="time-box">
-        <span id="seconds">0</span>
-        ثانية
-      </div>
-
     </div>
 
     <h2>📸 كرت الدعوة</h2>
 
     <div class="main-image">
 
-      <!-- ✨ حط لينك الصورة هنا -->
-      <img src="https://placehold.co/900x1400/png?text=Wedding+Card" alt="دعوة الفرح">
+      <img src="img1.jpg" alt="دعوة الفرح">
 
     </div>
 
@@ -221,7 +224,7 @@
         اضغط الزر لفتح الموقع على الخرائط
       </p>
 
-      <a href="https://maps.google.com" target="_blank">
+      <a href="https://share.google/6tNfmSinZ3v73OahI" target="_blank">
         فتح موقع القاعة
       </a>
 
@@ -235,7 +238,6 @@
 
   <script>
 
-    // ✨ تاريخ الفرح
     const weddingDate = new Date("2026-06-04T19:00:00").getTime();
 
     const countdown = setInterval(() => {
@@ -251,30 +253,16 @@
         / (1000 * 60 * 60)
       );
 
-      const minutes = Math.floor(
-        (distance % (1000 * 60 * 60))
-        / (1000 * 60)
-      );
-
-      const seconds = Math.floor(
-        (distance % (1000 * 60))
-        / 1000
-      );
-
       document.getElementById("days").innerHTML = days;
 
       document.getElementById("hours").innerHTML = hours;
-
-      document.getElementById("minutes").innerHTML = minutes;
-
-      document.getElementById("seconds").innerHTML = seconds;
 
       if (distance < 0) {
 
         clearInterval(countdown);
 
         document.querySelector('.countdown').innerHTML =
-          '<h2>🎉 الفرح بدأ 🎉>';
+          '<h2>🎉 الفرح بدأ 🎉</h2>';
       }
 
     }, 1000);
