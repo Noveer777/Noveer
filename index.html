@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>دعوة فرح</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #000000, #111111);
+      color: #ffffff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+
+      background: rgba(15, 15, 15, 0.96);
+
+      border: 1px solid #c9a14a;
+
+      border-radius: 25px;
+      padding: 30px;
+
+      box-shadow:
+        0 0 30px rgba(201, 161, 74, 0.18);
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #c9a14a;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      color: #dddddd;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin: 30px 0;
+    }
+
+    .time-box {
+      background: #111;
+
+      border: 1px solid #c9a14a;
+
+      padding: 20px;
+      border-radius: 20px;
+
+      min-width: 110px;
+
+      box-shadow:
+        0 0 15px rgba(201, 161, 74, 0.15);
+    }
+
+    .time-box span {
+      display: block;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #c9a14a;
+    }
+
+    h2 {
+      margin-top: 30px;
+      color: #c9a14a;
+    }
+
+    /* ✨ صورة بنفس مقاس الكرت */
+    .main-image {
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .main-image img {
+
+      width: 100%;
+      max-width: 420px;
+
+      height: 620px;
+
+      object-fit: cover;
+
+      border-radius: 30px;
+
+      border: 4px solid #c9a14a;
+
+      box-shadow:
+        0 0 25px rgba(201, 161, 74, 0.35),
+        0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .location {
+      margin-top: 35px;
+    }
+
+    .location p {
+      color: #dddddd;
+    }
+
+    .location a {
+      display: inline-block;
+      margin-top: 15px;
+
+      background: #c9a14a;
+      color: black;
+
+      text-decoration: none;
+
+      padding: 14px 28px;
+
+      border-radius: 14px;
+
+      transition: 0.3s;
+
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    .location a:hover {
+      background: #e0b85b;
+      transform: scale(1.05);
+    }
+
+    .footer {
+      margin-top: 35px;
+      color: #c9a14a;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 600px) {
+
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      .time-box {
+        min-width: 80px;
+        padding: 15px;
+      }
+
+      .time-box span {
+        font-size: 1.5rem;
+      }
+
+      .main-image img {
+        max-width: 320px;
+        height: 500px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>💍 دعوة فرح 💍</h1>
+
+    <p class="subtitle">
+      نتشرف بحضوركم ومشاركتنا أجمل لحظاتنا ❤️
+    </p>
+
+    <div class="countdown">
+
+      <div class="time-box">
+        <span id="days">0</span>
+        يوم
+      </div>
+
+      <div class="time-box">
+        <span id="hours">0</span>
+        ساعة
+      </div>
+
+      <div class="time-box">
+        <span id="minutes">0</span>
+        دقيقة
+      </div>
+
+      <div class="time-box">
+        <span id="seconds">0</span>
+        ثانية
+      </div>
+
+    </div>
+
+    <h2>📸 كرت الدعوة</h2>
+
+    <div class="main-image">
+
+      <!-- ✨ حط لينك الصورة هنا -->
+      <img src="https://placehold.co/900x1400/png?text=Wedding+Card" alt="دعوة الفرح">
+
+    </div>
+
+    <div class="location">
+
+      <h2>📍 مكان القاعة</h2>
+
+      <p style="margin-top:10px;">
+        اضغط الزر لفتح الموقع على الخرائط
+      </p>
+
+      <a href="https://maps.google.com" target="_blank">
+        فتح موقع القاعة
+      </a>
+
+    </div>
+
+    <div class="footer">
+      ❤️ في انتظاركم ❤️
+    </div>
+
+  </div>
+
+  <script>
+
+    // ✨ تاريخ الفرح
+    const weddingDate = new Date("2026-06-04T19:00:00").getTime();
+
+    const countdown = setInterval(() => {
+
+      const now = new Date().getTime();
+
+      const distance = weddingDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24))
+        / (1000 * 60 * 60)
+      );
+
+      const minutes = Math.floor(
+        (distance % (1000 * 60 * 60))
+        / (1000 * 60)
+      );
+
+      const seconds = Math.floor(
+        (distance % (1000 * 60))
+        / 1000
+      );
+
+      document.getElementById("days").innerHTML = days;
+
+      document.getElementById("hours").innerHTML = hours;
+
+      document.getElementById("minutes").innerHTML = minutes;
+
+      document.getElementById("seconds").innerHTML = seconds;
+
+      if (distance < 0) {
+
+        clearInterval(countdown);
+
+        document.querySelector('.countdown').innerHTML =
+          '<h2>🎉 الفرح بدأ 🎉>';
+      }
+
+    }, 1000);
+
+  </script>
+
+</body>
+
+</html>
